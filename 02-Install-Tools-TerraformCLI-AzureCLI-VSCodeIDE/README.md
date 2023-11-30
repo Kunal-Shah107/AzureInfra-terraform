@@ -12,6 +12,32 @@ description: Install all the tools required for learning Terraform on Azure Clou
 
 [![Image](https://stacksimplify.com/course-images/azure-terraform-install-1.png "HashiCorp Certified: Terraform Associate on Azure")](https://stacksimplify.com/course-images/azure-terraform-install-1.png)
 
+
+## Ubuntu: Terraform Install
+```t
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+gpg --dearmor | \
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+gpg --no-default-keyring \
+--keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+--fingerprint
+
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+sudo apt update
+
+sudo apt-get install terraform
+
+terraform -help
+touch ~/.bashrc
+terraform -install-autocomplete
+```
+
 ## Step-02: MACOS: Terraform Install
 - [Download Terraform MAC](https://www.terraform.io/downloads.html)
 - [Install CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli)

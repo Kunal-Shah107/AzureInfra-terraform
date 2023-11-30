@@ -59,7 +59,7 @@ resource "azurerm_public_ip" "web_linuxvm_publicip" {
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Static"
   sku = "Standard"
-  #domain_name_label = "app1-vm-${random_string.myrandom.id}"
+  #domain_name_label = "app-vm-${random_string.myrandom.id}"
 }
 ```
 
@@ -135,7 +135,6 @@ resource "azurerm_network_security_rule" "web_vmnic_nsg_rule_inbound" {
 locals {
 webvm_custom_data = <<CUSTOM_DATA
 #!/bin/sh
-#!/bin/sh
 #sudo yum update -y
 sudo yum install -y httpd
 sudo systemctl enable httpd
@@ -143,11 +142,11 @@ sudo systemctl start httpd
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 sudo chmod -R 777 /var/www/html 
-sudo echo "Welcome to stacksimplify - WebVM App1 - VM Hostname: $(hostname)" > /var/www/html/index.html
+sudo echo "Welcome to acloudguy - WebVM App - VM Hostname: $(hostname)" > /var/www/html/index.html
 sudo mkdir /var/www/html/app1
-sudo echo "Welcome to stacksimplify - WebVM App1 - VM Hostname: $(hostname)" > /var/www/html/app1/hostname.html
-sudo echo "Welcome to stacksimplify - WebVM App1 - App Status Page" > /var/www/html/app1/status.html
-sudo echo '<!DOCTYPE html> <html> <body style="background-color:rgb(250, 210, 210);"> <h1>Welcome to Stack Simplify - WebVM APP-1 </h1> <p>Terraform Demo</p> <p>Application Version: V1</p> </body></html>' | sudo tee /var/www/html/app1/index.html
+sudo echo "Welcome to acloudguy - WebVM App - VM Hostname: $(hostname)" > /var/www/html/app1/hostname.html
+sudo echo "Welcome to acloudguy - WebVM App - App Status Page" > /var/www/html/app1/status.html
+sudo echo '<!DOCTYPE html> <html> <body style="background-color:rgb(250, 210, 210);"> <h1>Welcome to acloudguy - WebVM APP </h1> <p>Terraform Demo</p> <p>Application deployed on Azure</p> </body></html>' | sudo tee /var/www/html/app1/index.html
 sudo curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" -o /var/www/html/app1/metadata.html
 CUSTOM_DATA  
 }
@@ -244,13 +243,13 @@ web_subnet_name = "websubnet"
 web_subnet_address = ["10.1.1.0/24"]
 
 app_subnet_name = "appsubnet"
-app_subnet_address = ["10.1.11.0/24"]
+app_subnet_address = ["10.1.2.0/24"]
 
 db_subnet_name = "dbsubnet"
-db_subnet_address = ["10.1.21.0/24"]
+db_subnet_address = ["10.1.3.0/24"]
 
 bastion_subnet_name = "bastionsubnet"
-bastion_subnet_address = ["10.1.100.0/24"]
+bastion_subnet_address = ["10.1.4.0/24"]
 ```
 
 ## Step-08: Execute Terraform Commands

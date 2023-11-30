@@ -26,7 +26,7 @@ provider "azurerm" {
 # Block-3: Resource Block
 # Create a resource group
 resource "azurerm_resource_group" "myrg" {
-  name = "myrg-1"
+  name = "myrgnew"
   location = var.azure_region 
 }
 # Create Virtual Network
@@ -40,7 +40,7 @@ resource "azurerm_virtual_network" "myvnet" {
 # Block-4: Input Variables Block
 # Define a Input Variable for Azure Region 
 variable "azure_region" {
-  default = "eastus"
+  default = "uaenorth"
   description = "Azure Region where resources to be created"
   type = string
 }

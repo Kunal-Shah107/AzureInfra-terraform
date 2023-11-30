@@ -9,10 +9,10 @@ web_subnet_name = "websubnet"
 web_subnet_address = ["10.1.1.0/24"]
 
 app_subnet_name = "appsubnet"
-app_subnet_address = ["10.1.11.0/24"]
+app_subnet_address = ["10.1.2.0/24"]
 
 db_subnet_name = "dbsubnet"
-db_subnet_address = ["10.1.21.0/24"]
+db_subnet_address = ["10.1.3.0/24"]
 
 bastion_subnet_name = "bastionsubnet"
-bastion_subnet_address = ["10.1.100.0/24"]
+bastion_subnet_address = ["10.1.4.0/24"]

@@ -55,7 +55,7 @@ variable "bastion_service_subnet_name" {
 }
 variable "bastion_service_address_prefixes" {
   description = "Bastion Service Address Prefixes"
-  default = ["10.0.101.0/27"]
+  default = ["10.0.5.0/27"]
 }
 ```
 
@@ -119,7 +119,7 @@ terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = ">= 2.0" 
+      version = ">= 3.0" 
     }
     random = {
       source = "hashicorp/random"
@@ -211,7 +211,7 @@ output "bastion_host_linuxvm_public_ip_address" {
 ```t
 # Newly added
 bastion_service_subnet_name = "AzureBastionSubnet"
-bastion_service_address_prefixes = ["10.1.101.0/27"]
+bastion_service_address_prefixes = ["10.1.5.0/27"]
 ```
 
 ## Step-07: Remove Public Access to Web Linux VM
@@ -220,6 +220,7 @@ bastion_service_address_prefixes = ["10.1.101.0/27"]
 - Test the SSH Connectivity to Web Linux VM using 
 1. Azure Bastion Host Linux VM
 2. Azure Bastion Service
+
 ### Step-07-01: Comment c7-02-web-linuxvm-publicip.tf
 ```t
 /*
@@ -230,7 +231,7 @@ resource "azurerm_public_ip" "web_linuxvm_publicip" {
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Static"
   sku = "Standard"
-  #domain_name_label = "app1-vm-${random_string.myrandom.id}"
+  #domain_name_label = "app-vm-${random_string.myrandom.id}"
 }
 */
 ```

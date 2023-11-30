@@ -58,7 +58,7 @@ terraform plan
 terraform apply -auto-approve
 
 # Verify the same
-1. Verify the Resource Group created in EastUS region
+1. Verify the Resource Group created in UAE North region
 2. Verify the Resource Group created in WestUS region
 ```
 

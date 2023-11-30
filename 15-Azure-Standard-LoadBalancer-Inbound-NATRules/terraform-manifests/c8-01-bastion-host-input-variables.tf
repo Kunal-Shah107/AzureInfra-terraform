@@ -7,5 +7,5 @@ variable "bastion_service_subnet_name" {
 
 variable "bastion_service_address_prefixes" {
   description = "Bastion Service Address Prefixes"
-  default = ["10.0.101.0/27"]
+  default = ["10.0.5.0/27"]
 }

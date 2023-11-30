@@ -80,7 +80,7 @@ variable "resource_group_name" {
 variable "resource_group_location" {
   description = "Region in which Azure Resources to be created"
   type = string
-  default = "eastus2"  
+  default = "uaenorth"  
 }
 ```
 
@@ -457,7 +457,7 @@ output "web_subnet_nsg_id" {
 business_divsion = "hr"
 environment = "dev"
 resource_group_name = "rg"
-resource_group_location = "eastus"
+resource_group_location = "uaenorth"
 vnet_name = "vnet"
 vnet_address_space = ["10.1.0.0/16"]
 

@@ -56,7 +56,7 @@ resource "azurerm_resource_group" "my_demo_rg1" {
 }
 ```
 ## IMP
-### EXPORE THE SUBSCRIPTION ID IN LOCAL ENV VARIABLE
+### EXPOSE THE SUBSCRIPTION ID IN LOCAL ENV VARIABLE
 
 ```t
 export ARM_SUBSCRIPTION_ID=<#subs_id>

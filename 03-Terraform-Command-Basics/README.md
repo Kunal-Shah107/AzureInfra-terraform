@@ -55,6 +55,12 @@ resource "azurerm_resource_group" "my_demo_rg1" {
   name = "my-demo-rg"  
 }
 ```
+## IMP
+### EXPORE THE SUBSCRIPTION ID IN LOCAL ENV VARIABLE
+
+```t
+export ARM_SUBSCRIPTION_ID=<#subs_id>
+```
 
 ## Step-03: Terraform Core Commands
 ```t

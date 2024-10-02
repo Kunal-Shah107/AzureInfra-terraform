@@ -4,7 +4,7 @@ terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = ">= 2.0"
+      version = ">= 4.0"
     }
   }
 }
@@ -24,7 +24,7 @@ provider "azurerm" {
   alias = "provider2-westus"
   #client_id = "XXXX"
   #client_secret = "YYY"
-  #environment = "german"
+  #environment = "germany"
   #subscription_id = "JJJJ"
 }
 

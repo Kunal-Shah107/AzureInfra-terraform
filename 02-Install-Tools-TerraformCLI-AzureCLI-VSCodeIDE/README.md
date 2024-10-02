@@ -98,15 +98,6 @@ az upgrade
 az --version
 ```
 
-[![Image](https://stacksimplify.com/course-images/xcode-install-1.png "HashiCorp Certified: Terraform Associate on Azure")](https://stacksimplify.com/course-images/xcode-install-1.png)
-
-[![Image](https://stacksimplify.com/course-images/xcode-install-2.png "HashiCorp Certified: Terraform Associate on Azure")](https://stacksimplify.com/course-images/xcode-install-2.png)
-
-[![Image](https://stacksimplify.com/course-images/xcode-install-3.png "HashiCorp Certified: Terraform Associate on Azure")](https://stacksimplify.com/course-images/xcode-install-3.png)
-
-[![Image](https://stacksimplify.com/course-images/xcode-install-4.png "HashiCorp Certified: Terraform Associate on Azure")](https://stacksimplify.com/course-images/xcode-install-4.png)
-
-
 ## Step-05: Terraform - Authenticating using the Azure CLI
 - [Azure Provider: Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli)
 ```t
@@ -169,5 +160,6 @@ az account set --subscription="SUBSCRIPTION_ID"
 - [Download Terraform](https://www.terraform.io/downloads.html)
 - [Linux OS - Terraform Install](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=script)
-- `Step-05:Terraform - Authenticating using the Azure CLI` is going to be same for LinuxOS too. 
-- [Course Git Repo](https://github.com/stacksimplify/hashicorp-certified-terraform-associate-on-azure)
+- `Step-05:Terraform - Authenticating using the Azure CLI` is going to be same for LinuxOS too.
+
+Good Start..Keep Building !!!

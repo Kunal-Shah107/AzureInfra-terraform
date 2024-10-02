@@ -1,23 +1,39 @@
 # Resource-1: Create AppTier Subnet
-resource "azurerm_subnet" "appsubnet" {
-  name                 = "${azurerm_virtual_network.vnet.name}-${var.app_subnet_name}"
+resource "azurerm_subnet" "appsubnet1" {
+  name                 = "${azurerm_virtual_network.vnet.name}-${var.app_subnet_name1}"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = var.app_subnet_address  
+  address_prefixes     = var.app_subnet_address1 
+}
+
+resource "azurerm_subnet" "appsubnet2" {
+  name                 = "${azurerm_virtual_network.vnet.name}-${var.app_subnet_name2}"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = var.app_subnet_address2 
 }
 
 # Resource-2: Create Network Security Group (NSG)
 resource "azurerm_network_security_group" "app_subnet_nsg" {
-  name                = "${azurerm_subnet.appsubnet.name}-nsg"
+  name                = "${azurerm_virtual_network.vnet.name}-app-nsg"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
 
-# Resource-3: Associate NSG and Subnet
+# Resource-3: Associate NSG with all AppTier Subnets
+locals {
+  app_subnets = {
+    "appsubnet1" = azurerm_subnet.appsubnet1.id
+    "appsubnet2" = azurerm_subnet.appsubnet2.id
+  }
+}
+
 resource "azurerm_subnet_network_security_group_association" "app_subnet_nsg_associate" {
-  depends_on = [ azurerm_network_security_rule.app_nsg_rule_inbound]  
-  subnet_id                 = azurerm_subnet.appsubnet.id
+  for_each                 = local.app_subnets
+  subnet_id                = each.value
   network_security_group_id = azurerm_network_security_group.app_subnet_nsg.id
+
+  depends_on = [azurerm_network_security_rule.app_nsg_rule_inbound]
 }
 
 # Resource-4: Create NSG Rules

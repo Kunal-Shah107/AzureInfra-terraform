@@ -22,7 +22,7 @@ resource "azurerm_subnet" "websubnet3" {
 
 # Resource-2: Create Network Security Groups (NSGs)
 resource "azurerm_network_security_group" "web_subnet_nsg" {
-  name                = "${azurerm_virtual_network.vnet.name}-nsg"
+  name                = "${azurerm_virtual_network.vnet.name}-web-nsg"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }

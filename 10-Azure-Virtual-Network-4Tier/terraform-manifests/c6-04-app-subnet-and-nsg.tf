@@ -41,9 +41,7 @@ resource "azurerm_subnet_network_security_group_association" "app_subnet_nsg_ass
 locals {
   app_inbound_ports_map = {
     "100" : "80", # If the key starts with a number, you must use the colon syntax ":" instead of "="
-    "110" : "443",
-    "120" : "8080",
-    "130" : "22"
+    "110" : "443"
   } 
 }
 ## NSG Inbound Rule for AppTier Subnets

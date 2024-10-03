@@ -49,8 +49,8 @@ resource "azurerm_subnet_network_security_group_association" "web_subnet_nsg_ass
 locals {
   web_inbound_ports_map = {
     "100" : "80",   # HTTP
-    "110" : "443",  # HTTPS
-    "120" : "22"    # SSH
+    "110" : "443"  # HTTPS
+
   }
 }
 

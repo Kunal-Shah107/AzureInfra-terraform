@@ -1,5 +1,5 @@
-business_divsion = "app"
-environment = "dev"
+business_divsion = "hc"
+environment = "lab"
 resource_group_name = "rg"
 resource_group_location = "uaenorth"
 vnet_name = "vnet"
